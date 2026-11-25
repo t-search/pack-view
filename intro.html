@@ -291,9 +291,9 @@ footer a{color:var(--sub);margin:0 8px}
 <!-- Android：1枚の絵 -->
 <div class="pn" id="p-and" hidden>
   <p class="note">※ Chrome で開いてください。</p>
-  <svg class="addimg" viewBox="0 0 640 330" role="img" aria-label="Androidでホーム画面に追加する手順：右上のメニュー、ホーム画面に追加、追加">
+  <svg class="addimg" viewBox="0 0 640 340" role="img" aria-label="Androidでホーム画面に追加する手順：右上のメニュー、ホーム画面に追加、追加">
     <!-- 1 メニュー -->
-    <g transform="translate(14,6) scale(1.3)">
+    <g transform="translate(6,6) scale(1.2)">
       <rect x="6" y="4" width="98" height="182" rx="14" fill="#0b1220" stroke="#475569" stroke-width="3"/>
       <rect x="14" y="16" width="82" height="162" rx="6" fill="#1e293b"/>
       <rect x="14" y="16" width="82" height="162" rx="8" fill="#eef1f5"/>
@@ -303,7 +303,7 @@ footer a{color:var(--sub);margin:0 8px}
       <rect x="22" y="48" width="66" height="10" rx="3" fill="#cbd5e1"/>
     </g>
     <!-- 2 追加を選ぶ -->
-    <g transform="translate(248,6) scale(1.3)">
+    <g transform="translate(243,6) scale(1.2)">
       <rect x="6" y="4" width="98" height="182" rx="14" fill="#0b1220" stroke="#475569" stroke-width="3"/>
       <rect x="14" y="16" width="82" height="162" rx="6" fill="#1e293b"/>
       <rect x="14" y="16" width="82" height="162" rx="8" fill="#eef1f5"/>
@@ -317,7 +317,7 @@ footer a{color:var(--sub);margin:0 8px}
       <rect x="46" y="112" width="42" height="6" rx="2" fill="#d5dbe5"/>
     </g>
     <!-- 3 完了 -->
-    <g transform="translate(482,6) scale(1.3)">
+    <g transform="translate(480,6) scale(1.2)">
       <rect x="6" y="4" width="98" height="182" rx="14" fill="#0b1220" stroke="#475569" stroke-width="3"/>
       <rect x="14" y="16" width="82" height="162" rx="8" fill="#eef1f5"/>
       <rect x="20" y="60" width="70" height="62" rx="8" fill="#ffffff" stroke="#e2e5ea"/>
@@ -328,18 +328,18 @@ footer a{color:var(--sub);margin:0 8px}
       <rect x="58" y="98" width="30" height="20" rx="10" fill="none" stroke="#f59e0b" stroke-width="3"/>
       <rect x="65" y="106" width="16" height="4" rx="2" fill="#ffffff"/>
     </g>
-    <g fill="none" stroke="#f59e0b" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M170 130 H222 M208 114 L224 130 L208 146"/>
-      <path d="M404 130 H456 M442 114 L458 130 L442 146"/>
+    <g fill="none" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M170 124 H208 M198 114 L208 124 L198 134"/>
+      <path d="M407 124 H445 M435 114 L445 124 L435 134"/>
     </g>
-    <text x="30" y="296" font-size="20">①</text>
-    <g fill="#f59e0b"><circle cx="70" cy="280" r="3.4"/><circle cx="70" cy="289" r="3.4"/><circle cx="70" cy="298" r="3.4"/></g>
-    <text x="88" y="296" font-size="20">メニュー</text>
-    <text x="322" y="296" text-anchor="middle" font-size="20">② ホーム画面</text>
-    <text x="322" y="322" text-anchor="middle" font-size="20">に追加</text>
-    <text x="500" y="296" font-size="20">③</text>
-    <rect x="530" y="274" width="64" height="30" rx="15" fill="#3b82f6"/>
-    <text x="562" y="296" text-anchor="middle" font-size="18" style="fill:#ffffff">追加</text>
+    <text x="8" y="296" font-size="20">①</text>
+    <g fill="#f59e0b"><circle cx="46" cy="280" r="3.4"/><circle cx="46" cy="289" r="3.4"/><circle cx="46" cy="298" r="3.4"/></g>
+    <text x="62" y="296" font-size="20">メニュー</text>
+    <text x="309" y="296" text-anchor="middle" font-size="20">② ホーム画面</text>
+    <text x="309" y="322" text-anchor="middle" font-size="20">に追加</text>
+    <text x="482" y="296" font-size="20">③</text>
+    <rect x="512" y="274" width="64" height="30" rx="15" fill="#3b82f6"/>
+    <text x="544" y="296" text-anchor="middle" font-size="18" style="fill:#ffffff">追加</text>
   </svg>
   <p class="note" style="margin-top:8px">「アプリをインストール」と出る場合は、それを選びます。追加すると、ホーム画面にアイコンができます。</p>
 </div>
@@ -386,7 +386,7 @@ footer a{color:var(--sub);margin:0 8px}
       var SPF=window.SPF||15;   /* スマホの吹き出し文字の大きさ */
       lbls.forEach(function(el){if(!el.dataset.pc)el.dataset.pc=el.innerHTML;el.innerHTML=el.dataset.sp;el.style.padding='.2em .35em';el.style.fontSize=SPF+'px';el.style.whiteSpace='nowrap';el.style.lineHeight='1.2';el.style.borderRadius='12px';el.style.width='auto';el.style.maxWidth='none';});
       measure();
-      pw=Math.round(avail*0.55);   /* スマホの絵の幅（吹き出しは個別に配置） */
+      pw=Math.round(avail*0.65);   /* スマホの絵の幅（吹き出しは個別に配置） */
       gutter=(avail-pw)/2;
     } else {
       lbls.forEach(function(el){if(el.dataset.pc)el.innerHTML=el.dataset.pc;el.style.padding='';el.style.fontSize='24px';el.style.whiteSpace='nowrap';el.style.maxWidth='none';el.style.width='auto';el.style.borderRadius='';el.style.lineHeight='';});
@@ -443,7 +443,7 @@ footer a{color:var(--sub);margin:0 8px}
           lx=Math.max(0,Math.min(bcx-lw*0.75, sr.width-lw)); lt=pb+12;
         }
         if(el.getAttribute('data-ov')==='above'){ /* 時刻の真上 */
-          lx=bcx-lw/2; lt=br.top-sr.top-lh-26;
+          lx=bcx-lw/2; lt=br.top-sr.top-lh-18;
         }
         if(el.getAttribute('data-ov')==='grid'){ /* 現状設定の吹き出しの上あたり */
           var rb=document.getElementById('tReset').getBoundingClientRect();
@@ -477,8 +477,8 @@ footer a{color:var(--sub);margin:0 8px}
       ln.setAttribute('d','M'+x0+' '+ly+' L'+o.x1+' '+o.cy);
       ln.setAttribute('stroke',C);ln.setAttribute('stroke-width','1.25');ln.setAttribute('stroke-linecap','round');ln.setAttribute('fill','none');
       var dot=document.createElementNS(NS,'circle');
-      dot.setAttribute('cx',o.x1);dot.setAttribute('cy',o.cy);dot.setAttribute('r','2.6');
-      dot.setAttribute('fill',C);dot.setAttribute('stroke','#fff');dot.setAttribute('stroke-width','1');
+      dot.setAttribute('cx',o.x1);dot.setAttribute('cy',o.cy);dot.setAttribute('r','1.7');
+      dot.setAttribute('fill',C);dot.setAttribute('stroke','#fff');dot.setAttribute('stroke-width','0.8');
       svg.appendChild(ln);svg.appendChild(dot);
     });
   }
