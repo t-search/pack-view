@@ -55,7 +55,7 @@ h2{font-size:20px;margin:36px 0 6px}
 .nb{flex:1;text-align:center;font-size:11px;color:var(--sub);line-height:1.2;white-space:nowrap}
 .nb .ic{display:block;font-size:17px;margin-bottom:3px}
 .nb.on{color:var(--accent)}
-.lbl{position:absolute;z-index:3;display:flex;align-items:center;white-space:nowrap;font-size:24px;font-weight:700;line-height:1.2;color:#1a1205;background:var(--cta);border-radius:999px;padding:.22em .6em;box-shadow:0 2px 8px rgba(15,23,42,.2)}
+.lbl{position:absolute;z-index:3;display:block;white-space:nowrap;font-size:24px;font-weight:700;line-height:1.2;color:#0f172a;background:#ffedd5;border:1px solid var(--cta);border-radius:999px;padding:.18em .55em}
 .lines{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:2;overflow:visible}
 
 /* ===== ホーム画面に追加（1枚の絵） ===== */
@@ -68,10 +68,11 @@ h2{font-size:20px;margin:36px 0 6px}
 
 /* ===== ほかの画面（見本） ===== */
 .hh2{text-align:center}
-.ttl{display:table;margin:0 auto 12px;text-align:center;font-weight:800;font-size:clamp(15px,4.2vw,24px);background:var(--cta);color:#1a1205;border-radius:999px;padding:4px 22px;line-height:1.4;white-space:nowrap;box-shadow:0 3px 10px rgba(245,158,11,.35)}
+.ttl{display:table;margin:0 auto 12px;text-align:center;font-weight:800;font-size:clamp(15px,4.2vw,24px);background:#fff;color:#0f172a;border:1px solid var(--cta);border-radius:999px;padding:4px 22px;line-height:1.4;white-space:nowrap}
 .ttl .sy{display:inline-block;margin-right:.45em;color:#00c8ff;font-weight:900;font-size:1.05em;vertical-align:baseline;-webkit-text-stroke:.6px rgba(8,32,60,.55);text-shadow:0 0 6px rgba(0,200,255,.95),0 0 12px rgba(0,200,255,.6)}
 .samples{display:grid;grid-template-columns:repeat(6,1fr);gap:28px 10px;margin-top:44px;align-items:start}
 .samples>div{grid-column:span 2}
+.samples .ttl{font-size:clamp(12px,3.3vw,20px);padding:2px 12px;margin-bottom:8px}
 .samples>div:nth-child(4){grid-column:2 / span 2}
 .samples>div:nth-child(5){grid-column:4 / span 2}
 .hs{display:table;margin:0 auto 10px;text-align:center;font-weight:800;font-size:clamp(13px,3.8vw,22px);border:3px solid var(--cta);border-radius:14px;padding:1px 14px;line-height:1.45;white-space:nowrap}
@@ -168,12 +169,12 @@ footer a{color:var(--sub);margin:0 8px}
     </div>
   </div>
   <svg class="lines" id="lines"></svg>
-  <div class="lbl l" data-t="grid" data-side="l" data-mode="edge"><span style="color:#0369a1">●</span>がパックの残り</div>
-  <div class="lbl l" data-t="tReset" data-side="l" data-mode="center">先ず現状設定</div>
-  <div class="lbl l" data-t="tTime" data-side="l" data-mode="edge" data-lift="52">前回の時刻</div>
-  <div class="lbl" data-t="tBig" data-side="r" data-mode="center">タップで記録</div>
-  <div class="lbl" data-t="tMinus" data-side="r" data-mode="center">取り消し</div>
-  <div class="lbl" data-t="tGuide" data-side="r" data-mode="edge">詳しい使い方はこちら</div>
+  <div class="lbl l" data-sp="<span style=&quot;color:#0369a1&quot;>●</span>がパックの残り" data-ov="grid" data-t="grid" data-side="l" data-mode="edge"><span style="color:#0369a1">●</span>がパックの残り</div>
+  <div class="lbl l" data-sp="先ずは現状設定" data-ov="upl" data-t="tReset" data-side="l" data-mode="center">先ずは現状設定</div>
+  <div class="lbl l" data-sp="前回時刻" data-ov="above" data-t="tTime" data-side="l" data-mode="edge" data-lift="52">前回時刻</div>
+  <div class="lbl" data-sp="タップで記録" data-ov="1" data-t="tBig" data-side="r" data-mode="center">タップで記録</div>
+  <div class="lbl" data-sp="取消し" data-ov="up" data-t="tMinus" data-side="r" data-mode="center">取消し</div>
+  <div class="lbl" data-sp="使い方はこちら" data-ov="below" data-t="tGuide" data-side="r" data-mode="edge">詳しい使い方はこちら</div>
 </div>
 
 <div style="margin-top:22px"><a class="btn" href="./index.html">アプリを開いて使ってみる（無料）</a></div>
@@ -378,35 +379,38 @@ footer a{color:var(--sub);margin:0 8px}
 
   function layout(){
     var avail=stage.clientWidth;
-    var maxw=0;
-    function measure(){maxw=0;lbls.forEach(function(el){el.style.width='auto';maxw=Math.max(maxw,el.offsetWidth);});}
-    lbls.forEach(function(el){el.style.fontSize='24px';});
-    measure();
-    /* 画面が狭いときだけ、文字を小さくして、絵の幅を確保する */
-    var room=(avail-200)/2-8;
-    var fs=Math.max(10,24*Math.min(1,room/maxw));
-    lbls.forEach(function(el){el.style.fontSize=fs+'px';});
-    measure();
-    var gutter=maxw+8;
-    var pw=Math.min(480,avail-2*gutter);
+    var sp=avail<600;   /* スマホ：絵を大きく、吹き出しは2行まで折り返す */
+    var maxw=0, gutter, pw;
+    function measure(){maxw=0;lbls.forEach(function(el){if(sp&&el.getAttribute('data-ov'))return;maxw=Math.max(maxw,el.offsetWidth);});}
+    if(sp){
+      var SPF=window.SPF||15;   /* スマホの吹き出し文字の大きさ */
+      lbls.forEach(function(el){if(!el.dataset.pc)el.dataset.pc=el.innerHTML;el.innerHTML=el.dataset.sp;el.style.padding='.2em .35em';el.style.fontSize=SPF+'px';el.style.whiteSpace='nowrap';el.style.lineHeight='1.2';el.style.borderRadius='12px';el.style.width='auto';el.style.maxWidth='none';});
+      measure();
+      pw=Math.round(avail*0.55);   /* スマホの絵の幅（吹き出しは個別に配置） */
+      gutter=(avail-pw)/2;
+    } else {
+      lbls.forEach(function(el){if(el.dataset.pc)el.innerHTML=el.dataset.pc;el.style.padding='';el.style.fontSize='24px';el.style.whiteSpace='nowrap';el.style.maxWidth='none';el.style.width='auto';el.style.borderRadius='';el.style.lineHeight='';});
+      measure();
+      var room=(avail-200)/2-8;
+      var fs=Math.max(10,24*Math.min(1,room/maxw));
+      lbls.forEach(function(el){el.style.fontSize=fs+'px';});
+      measure();
+      gutter=maxw+8;
+      pw=Math.min(480,avail-2*gutter);
+    }
     phone.style.zoom=pw/400;
+    stage.style.paddingBottom=sp?'44px':'';
     var sr=stage.getBoundingClientRect();
     svg.innerHTML='';
     svg.setAttribute('viewBox','0 0 '+sr.width+' '+sr.height);
+    var placed={l:[],r:[]};
     lbls.forEach(function(el){
       var t=document.getElementById(el.getAttribute('data-t'));
       var r=t.getBoundingClientRect();
       var center=el.getAttribute('data-mode')==='center';
       var cy=r.top-sr.top+r.height/2-(center?Math.min(16,r.height*0.18):0);
       var left=el.getAttribute('data-side')==='l';
-      var lw=el.offsetWidth;
-      var lift=parseFloat(el.getAttribute('data-lift'))||24;   /* 吹き出しは、真横ではなく、やや上 */
-      var ly=cy-lift;
-      el.style.top=(ly-el.offsetHeight/2)+'px';
-      if(left){el.style.left='0px';el.style.right='auto';}
-      else{el.style.right='0px';el.style.left='auto';}
-      var x0=left?lw:sr.width-lw;
-      /* 丸い点は、ボタンの外側のふちに接する（ボタンにはかぶせない） */
+      var lift=(parseFloat(el.getAttribute('data-lift'))||24)*(sp?0.6:1);
       var x1, gap=6;
       if(center){
         var R=Math.min(r.width,r.height)/2, off=Math.min(16,r.height*0.18);
@@ -416,13 +420,65 @@ footer a{color:var(--sub);margin:0 8px}
       } else {
         x1=left?(r.left-sr.left-gap):(r.right-sr.left+gap);
       }
+      placed[left?'l':'r'].push({el:el,left:left,cy:cy,x1:x1,top:cy-lift-el.offsetHeight/2});
+    });
+    /* 同じ側の吹き出しが重ならないよう、上から順にずらす */
+    ['l','r'].forEach(function(k){
+      var a=placed[k].sort(function(p,q){return p.top-q.top;}), y=-1e9;
+      a.forEach(function(o){if(o.top<y+6)o.top=y+6; y=o.top+o.el.offsetHeight;});
+    });
+    placed.l.concat(placed.r).forEach(function(o){
+      var el=o.el,lw=el.offsetWidth,ly=o.top+el.offsetHeight/2;
+      el.style.top=o.top+'px';
+      if(o.left){el.style.left='0px';el.style.right='auto';}
+      else{el.style.right='0px';el.style.left='auto';}
+      var x0=o.left?lw:sr.width-lw;
+      if(sp&&el.getAttribute('data-ov')){ /* ボタンの右上に寄せる */
+        var br=document.getElementById(el.getAttribute('data-t')).getBoundingClientRect();
+        var bcx=br.left-sr.left+br.width/2, bcy=br.top-sr.top+br.height/2, bR=br.width/2+5;
+        o.x1=bcx+bR*0.707; o.cy=bcy-bR*0.707;
+        var lh=el.offsetHeight, lx=Math.min(o.x1+30, sr.width-lw), lt=o.cy-lh+8;
+        if(el.getAttribute('data-ov')==='below'){ /* 絵の下に1行で */
+          var pb=phone.getBoundingClientRect().bottom-sr.top;
+          lx=Math.max(0,Math.min(bcx-lw*0.75, sr.width-lw)); lt=pb+12;
+        }
+        if(el.getAttribute('data-ov')==='above'){ /* 時刻の真上 */
+          lx=bcx-lw/2; lt=br.top-sr.top-lh-26;
+        }
+        if(el.getAttribute('data-ov')==='grid'){ /* 現状設定の吹き出しの上あたり */
+          var rb=document.getElementById('tReset').getBoundingClientRect();
+          lx=Math.max(0,(rb.left-sr.left+rb.width/2)-lw+18); lt=rb.top-sr.top-2*lh-30-22;
+        }
+        if(el.getAttribute('data-ov')==='upl'){ /* ボタンの上（左寄り） */
+          lx=Math.max(0,bcx-lw+18); lt=br.top-sr.top-lh-30;
+        }
+        if(el.getAttribute('data-ov')==='up'){ /* ボタンの真上、内側寄り */
+          var phr=phone.getBoundingClientRect().right-sr.left; lx=Math.min(phr-lw/2, sr.width-lw); lt=br.top-sr.top-lh-10;
+        }
+        el.style.left=lx+'px'; el.style.right='auto'; el.style.top=lt+'px';
+        var ovm=el.getAttribute('data-ov');
+        x0=ovm==='grid'?lx+lw-18:ovm==='upl'?(function(){var tn=el.firstChild,rg=document.createRange();rg.setStart(tn,1);rg.setEnd(tn,2);var cr=rg.getBoundingClientRect();return cr.left-sr.left+cr.width/2;})():ovm==='up'?lx+lw*0.6:(ovm==='below'?(function(){var tn=el.firstChild,rg=document.createRange();rg.setStart(tn,2);rg.setEnd(tn,3);var cr=rg.getBoundingClientRect();return cr.left-sr.left+cr.width/2;})():(ovm==='above'?lx+lw/2:lx+10)); ly=(ovm==='below'||ovm==='grid')?lt:lt+lh;
+        /* 支持線はボタンの中心に向ける（点はボタンのふち） */
+        var ddx=x0-bcx, ddy=ly-bcy, dd=Math.sqrt(ddx*ddx+ddy*ddy)||1;
+        if(ovm==='above'){ /* 時刻の「0」に向ける */
+          var tn=document.getElementById(el.getAttribute('data-t')).firstChild, rg=document.createRange();
+          rg.setStart(tn,0);rg.setEnd(tn,1);var zr=rg.getBoundingClientRect();
+          o.x1=zr.left-sr.left+zr.width/2; o.cy=zr.top-sr.top-2;
+        }
+        else if(ovm==='grid'){ /* 下段の左から4つ目の丸 */
+          var d4=document.getElementById('grid').children[13].getBoundingClientRect();
+          o.x1=d4.left-sr.left+d4.width/2; o.cy=d4.bottom-sr.top+8;
+        }
+        else if(ovm==='below'){o.x1=bcx; o.cy=br.bottom-sr.top+4;}
+        else{o.x1=bcx+ddx/dd*bR; o.cy=bcy+ddy/dd*bR;}
+      }
       var C='#f59e0b';
       var ln=document.createElementNS(NS,'path');
-      ln.setAttribute('d','M'+x0+' '+ly+' L'+x1+' '+cy);
-      ln.setAttribute('stroke',C);ln.setAttribute('stroke-width','2.5');ln.setAttribute('stroke-linecap','round');ln.setAttribute('fill','none');
+      ln.setAttribute('d','M'+x0+' '+ly+' L'+o.x1+' '+o.cy);
+      ln.setAttribute('stroke',C);ln.setAttribute('stroke-width','1.25');ln.setAttribute('stroke-linecap','round');ln.setAttribute('fill','none');
       var dot=document.createElementNS(NS,'circle');
-      dot.setAttribute('cx',x1);dot.setAttribute('cy',cy);dot.setAttribute('r','4.5');
-      dot.setAttribute('fill',C);dot.setAttribute('stroke','#fff');dot.setAttribute('stroke-width','1.5');
+      dot.setAttribute('cx',o.x1);dot.setAttribute('cy',o.cy);dot.setAttribute('r','2.6');
+      dot.setAttribute('fill',C);dot.setAttribute('stroke','#fff');dot.setAttribute('stroke-width','1');
       svg.appendChild(ln);svg.appendChild(dot);
     });
   }
