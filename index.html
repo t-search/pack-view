@@ -2136,9 +2136,10 @@ renderSettings();
 if(!maybeShowIntro()) maybeShowBackupReminder();
 
 /* register service worker for installability */
+/* updateViaCache:'none' … 新しい版の確認(sw.js)は端末の写しを使わず毎回サーバーから取る */
 if('serviceWorker' in navigator){
   window.addEventListener('load', ()=>{
-    navigator.serviceWorker.register('sw.js').then(reg=>{ try{ reg.update(); }catch(_){} }).catch(()=>{});
+    navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then(reg=>{ try{ reg.update(); }catch(_){} }).catch(()=>{});
   });
   // 新しい版に切り替わったら、起動直後(15秒以内)に限って1回だけ自動で読み込み直す。
   // (使用中の入力を邪魔しないため。短時間に何度も繰り返さないよう制限あり)
