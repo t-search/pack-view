@@ -164,7 +164,7 @@ footer a{color:var(--sub);margin:0 8px}
 
 <div class="stage" id="stage">
   <div class="phone-img" id="phone">
-    <img src="intro-home.webp" alt="Pack View のホーム画面" width="400" height="628">
+    <img src="img/intro-home.webp" alt="Pack View のホーム画面" width="400" height="628">
     <div class="tg" id="grid" style="left:8.500%;top:12.838%;width:83.000%;height:9.816%"></div>
     <div class="tg" id="tReset" style="left:6.750%;top:63.431%;width:16.500%;height:10.513%"></div>
     <div class="tg" id="tBig" style="left:28.750%;top:39.219%;width:42.500%;height:27.079%"></div>
@@ -195,24 +195,24 @@ footer a{color:var(--sub);margin:0 8px}
 <!-- iPhone：1枚の絵 -->
 <div class="pn" id="p-ios">
   <p class="note">※ Safari で開いてください（他のブラウザでは追加できません）。</p>
-  <img class="addimg" src="intro-add-ios.webp" alt="iPhoneでホーム画面に追加する手順：三本線をタップ、共有を選ぶ、ホーム画面に追加、追加" width="604" height="322">
+  <img class="addimg" src="img/intro-add-ios.webp" alt="iPhoneでホーム画面に追加する手順：三本線をタップ、共有を選ぶ、ホーム画面に追加、追加" width="604" height="322">
   <p class="note" style="margin-top:8px">「ウェブアプリとして開く」は、オンのままにしてください。追加すると、ホーム画面にアイコンができます。</p>
 </div>
 
 <!-- Android：1枚の絵 -->
 <div class="pn" id="p-and" hidden>
   <p class="note">※ Chrome で開いてください。</p>
-  <img class="addimg" src="intro-add-and.webp" alt="Androidでホーム画面に追加する手順：右上のメニュー、ホーム画面に追加、追加" width="604" height="322">
+  <img class="addimg" src="img/intro-add-and.webp" alt="Androidでホーム画面に追加する手順：右上のメニュー、ホーム画面に追加、追加" width="604" height="322">
   <p class="note" style="margin-top:8px">「アプリをインストール」と出る場合は、それを選びます。追加すると、ホーム画面にアイコンができます。</p>
 </div>
 
 <h2 class="h2box">Pack Viewの機能</h2>
 <div class="samples" id="samples" style="margin-top:20px">
-  <div><div class="ttl"><span class="sy">▦</span>カレンダー</div><img class="mpi" src="intro-cal.webp" alt="Pack View のカレンダー画面" width="330" height="560" loading="lazy"></div>
-  <div><div class="ttl"><span class="sy">Σ</span>統計</div><img class="mpi" src="intro-stat.webp" alt="Pack View の統計画面" width="330" height="560" loading="lazy"><div class="mcap"><small>プレミアム機能</small></div></div>
-  <div><div class="ttl"><span class="sy">✎</span>メモ</div><img class="mpi" src="intro-memo.webp" alt="Pack View のメモ画面" width="330" height="560" loading="lazy"></div>
-  <div><div class="ttl"><span class="sy">☰</span>設定</div><img class="mpi" src="intro-set.webp" alt="Pack View の設定画面" width="330" height="560" loading="lazy"></div>
-  <div><div class="ttl"><span class="sy">ⓘ</span>ガイド</div><img class="mpi" src="intro-guide.webp" alt="Pack View のガイド画面" width="330" height="560" loading="lazy"></div>
+  <div><div class="ttl"><span class="sy">▦</span>カレンダー</div><img class="mpi" src="img/intro-cal.webp" alt="Pack View のカレンダー画面" width="330" height="560" loading="lazy"></div>
+  <div><div class="ttl"><span class="sy">Σ</span>統計</div><img class="mpi" src="img/intro-stat.webp" alt="Pack View の統計画面" width="330" height="560" loading="lazy"><div class="mcap"><small>プレミアム機能</small></div></div>
+  <div><div class="ttl"><span class="sy">✎</span>メモ</div><img class="mpi" src="img/intro-memo.webp" alt="Pack View のメモ画面" width="330" height="560" loading="lazy"></div>
+  <div><div class="ttl"><span class="sy">☰</span>設定</div><img class="mpi" src="img/intro-set.webp" alt="Pack View の設定画面" width="330" height="560" loading="lazy"></div>
+  <div><div class="ttl"><span class="sy">ⓘ</span>ガイド</div><img class="mpi" src="img/intro-guide.webp" alt="Pack View のガイド画面" width="330" height="560" loading="lazy"></div>
 </div>
 
 <h2 class="h2box">プレミアム機能</h2>
@@ -226,14 +226,14 @@ footer a{color:var(--sub);margin:0 8px}
 
 <footer>
   <a href="tokushoho.html">特定商取引法に基づく表記</a><a href="terms.html">利用規約・プライバシー</a>
-  <p>© T-search<span class="ver">ver 2026.11.28</span></p>
+  <p>© T-search<span class="ver">ver 2026.11.28b</span></p>
 </footer>
 
 </main>
 <script>
 (function(){
   /* 丸（青＝残り、赤＝吸った本数） */
-  /* ホームの絵は画像（intro-home.webp）。吹き出しは画像の上の目印（.tg）を指す */
+  /* ホームの絵は画像（img/intro-home.webp）。吹き出しは画像の上の目印（.tg）を指す */
 
   var stage=document.getElementById('stage'), phone=document.getElementById('phone'), svg=document.getElementById('lines');
   var lbls=[].slice.call(document.querySelectorAll('.lbl'));
@@ -347,7 +347,7 @@ footer a{color:var(--sub);margin:0 8px}
   window.addEventListener('resize',layout);
   layout();
 
-  /* ほかの画面（見本）は画像（intro-cal.webp など） */
+  /* ほかの画面（見本）は画像（img/intro-cal.webp など） */
 
   var tabs=document.querySelectorAll('.tab');
   function show(id){
