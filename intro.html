@@ -146,9 +146,18 @@ h2{font-size:20px;margin:36px 0 6px}
 footer{margin-top:40px;text-align:center;font-size:13px;color:var(--sub)}
 footer a{color:var(--sub);margin:0 8px}
 .ver{margin-left:.8em;font-size:.85em;color:#94a3b8}
+
+/* ===== T-search の帯（ホームページと同じ。左の T-SEARCH でホームへ戻る） ===== */
+.tsb{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e4e3de}
+.tsb-in{max-width:1080px;margin:0 auto;padding:16px 24px;display:flex;align-items:center}
+.tsb a{display:flex;align-items:flex-end;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-weight:700;line-height:.8}
+.tsb .t{color:#aa003e;font-size:30px}
+.tsb .s{color:#2c2c2a;font-size:17px;letter-spacing:.22em;margin-left:.034em}
+@media (max-width:600px){.tsb-in{padding:10px 14px}.tsb .t{font-size:24px}.tsb .s{font-size:13px;letter-spacing:.18em}}
 </style>
 </head>
 <body>
+<header class="tsb"><div class="tsb-in"><a href="https://t-search.github.io/" aria-label="T-search のホームへ"><span class="t">T</span><span class="s">-SEARCH</span></a></div></header>
 <main>
 
 <section class="hero">
@@ -226,7 +235,7 @@ footer a{color:var(--sub);margin:0 8px}
 
 <footer>
   <a href="tokushoho.html">特定商取引法に基づく表記</a><a href="terms.html">利用規約・プライバシー</a>
-  <p>© T-search<span class="ver">ver 2026.11.28b</span></p>
+  <p>© T-search<span class="ver">ver 2026.11.28c</span></p>
 </footer>
 
 </main>
