@@ -96,9 +96,10 @@
   .last-touch-card.open{border-top-color:transparent;border-top-left-radius:0;border-top-right-radius:0;}
   .last-touch-label{position:absolute;left:20px;color:var(--danger);font-size:18px;letter-spacing:.04em;text-transform:lowercase;}
   .last-touch-time{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;}
-  .brand-logo{background:none;border-top:0;border-left:0;border-right:0;cursor:pointer;-webkit-tap-highlight-color:transparent;display:flex;align-items:baseline;justify-content:center;width:fit-content;margin:38px auto 8px;padding:0 2px 4px;border-bottom:1px solid var(--border);font-family:Arial,Helvetica,sans-serif;font-weight:700;line-height:1;}
-  .brand-logo .bl-t{font-size:34px;color:#a62b2e;margin-right:3px;}
-  .brand-logo .bl-s{font-size:22px;letter-spacing:.22em;color:var(--text);opacity:.85;}
+  .brand-logo{text-decoration:none;background:#fff;border:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.12);border-radius:12px;cursor:pointer;-webkit-tap-highlight-color:transparent;display:block;width:fit-content;margin:38px auto 8px;padding:4px 16px 2px;font-family:Arial,Helvetica,sans-serif;font-weight:700;line-height:1;}
+  .brand-logo .bl-row{display:flex;align-items:baseline;justify-content:center;}
+  .brand-logo .bl-t{font-size:40px;color:#aa003e;margin-right:4px;}
+  .brand-logo .bl-s{font-size:22px;letter-spacing:.3em;margin-right:-.3em;color:#2d2d2b;}
   .last-touch-sw{position:absolute;right:20px;font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--accent);}  .tap-card{position:relative;min-height:267px;}
   .tap-wrap{position:relative;margin-top:-8px;width:187px;height:187px;}
   .adjust-btn{
@@ -485,7 +486,7 @@
     <section class="view" id="view-guide">
       <div class="section-title" style="margin:0 0 10px;font-size:16px;">Pack View ガイド</div>
       <div id="guideList"></div>
-      <button type="button" class="brand-logo" id="brandLogoBtn" aria-label="T-SEARCH"><span class="bl-t">T</span><span class="bl-s">-SEARCH</span></button>
+      <a class="brand-logo" id="brandLogoBtn" href="https://t-search.github.io/" target="_blank" rel="noopener" aria-label="T-SEARCH のホームページを開く"><span class="bl-row"><span class="bl-t">T</span><span class="bl-s">-SEARCH</span></span></a>
     </section>
   </main>
 
