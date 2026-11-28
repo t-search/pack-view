@@ -24,9 +24,9 @@ main{max-width:640px;margin:0 auto;padding:24px 18px 48px}
 .hero{text-align:center;padding:20px 0 4px}
 .brand{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:6px}
 .hero img{width:84px;height:84px;border-radius:20px;flex:0 0 84px}
-.bt{text-align:left}
+.bt{text-align:left;min-width:0}
 .bn{display:block;font-size:15px;font-weight:700;color:var(--sub);letter-spacing:.04em;line-height:1.2}
-h1{font-size:clamp(28px,8vw,40px);margin:2px 0 0;line-height:1.2;font-weight:800;white-space:nowrap}
+h1{font-size:clamp(28px,8vw,40px);margin:2px 0 0;line-height:1.2;font-weight:800}
 .lead{color:var(--sub);margin:0 0 6px}
 h2{font-size:20px;margin:36px 0 6px}
 .h2box{background:var(--accent);color:#06202b;border:2px solid var(--accent);border-radius:14px;padding:10px 14px;text-align:center}
@@ -74,6 +74,10 @@ h2{font-size:20px;margin:36px 0 6px}
 .tab{flex:1;padding:11px;border-radius:10px;border:1px solid #cbd5e1;background:var(--card);color:var(--sub);font-size:15px;font-weight:600;cursor:pointer}
 .tab[aria-selected=true]{background:var(--accent);color:#06202b;border-color:var(--accent)}
 .pn[hidden]{display:none}
+.phone-img{position:relative;width:400px;margin:0 auto}
+.phone-img img{display:block;width:100%;height:auto;border-radius:6.5%/4.14%;box-shadow:0 10px 30px rgba(15,23,42,.25)}
+.phone-img .tg{position:absolute;pointer-events:none}
+.mpi{display:block;width:100%;height:auto;border-radius:7.9%/4.6%;box-shadow:0 8px 22px rgba(15,23,42,.22)}
 .addimg{display:block;width:100%;height:auto;margin:6px auto 0}
 .addimg text{font-family:inherit;font-weight:700;fill:#0f172a}
 
@@ -83,7 +87,7 @@ h2{font-size:20px;margin:36px 0 6px}
 .ttl .sy{display:inline-block;margin-right:.45em;color:#00c8ff;font-weight:900;font-size:1.05em;vertical-align:baseline;-webkit-text-stroke:.6px rgba(8,32,60,.55);text-shadow:0 0 6px rgba(0,200,255,.95),0 0 12px rgba(0,200,255,.6)}
 .samples{display:grid;grid-template-columns:repeat(6,1fr);gap:28px 10px;margin-top:44px;align-items:start}
 .samples>div{grid-column:span 2}
-.samples .ttl{font-size:clamp(12px,3.3vw,20px);padding:2px 12px;margin-bottom:8px}
+.samples .ttl{font-size:clamp(12px,3.3vw,20px);padding:2px 12px;margin-bottom:8px;white-space:normal;max-width:100%}
 .samples>div:nth-child(4){grid-column:2 / span 2}
 .samples>div:nth-child(5){grid-column:4 / span 2}
 .hs{display:table;margin:0 auto 10px;text-align:center;font-weight:800;font-size:clamp(13px,3.8vw,22px);border:3px solid var(--cta);border-radius:14px;padding:1px 14px;line-height:1.45;white-space:nowrap}
@@ -158,27 +162,16 @@ footer a{color:var(--sub);margin:0 8px}
 <div class="ttl" style="margin-top:20px"><span class="sy">●</span>ホーム</div>
 
 <div class="stage" id="stage">
-  <div class="phone" id="phone">
-    <div class="ahead"><h3><span class="logo-dot"></span>Pack View</h3><div class="r">ホーム</div></div>
-    <div class="acard">
-      <div class="remain-grid" id="grid" data-used="3"></div>
-      <div class="pack-history"><div class="box">3</div>
-        <div class="remain-controls"><div class="box adj">＋</div><div class="box rb">17</div><div class="box adj">－</div></div></div>
-    </div>
-    <div class="acard tap-card">
-      <div class="tap-btn" id="tBig">3</div>
-      <div class="adjust reset" id="tReset">RESET</div>
-      <div class="adjust minus" id="tMinus"><span>−</span></div>
-    </div>
-    <div class="acard last"><div class="lb">last tap</div><div class="tm" id="tTime">08:56</div><div class="sw">00:12:30</div></div>
-    <div class="nav">
-      <div class="nb on"><span class="ic">●</span>ホーム</div>
-      <div class="nb"><span class="ic">▦</span>カレンダー</div>
-      <div class="nb"><span class="ic">Σ</span>統計</div>
-      <div class="nb"><span class="ic">✎</span>メモ</div>
-      <div class="nb"><span class="ic">☰</span>設定</div>
-      <div class="nb"><span id="tGuide" style="display:inline-block"><span class="ic">ⓘ</span>ガイド</span></div>
-    </div>
+  <div class="phone-img" id="phone">
+    <img src="intro-home.webp" alt="Pack View のホーム画面" width="400" height="628">
+    <div class="tg" id="grid" style="left:8.500%;top:12.838%;width:83.000%;height:9.816%"></div>
+    <div class="tg" id="tReset" style="left:6.750%;top:63.431%;width:16.500%;height:10.513%"></div>
+    <div class="tg" id="tBig" style="left:28.750%;top:39.219%;width:42.500%;height:27.079%"></div>
+    <div class="tg" id="tMinus" style="left:76.750%;top:63.431%;width:16.500%;height:10.513%"></div>
+    <div class="tg" id="tTime" style="left:42.148%;top:81.000%;width:15.703%;height:5.956%"></div>
+    <div class="tg" id="tGuide" style="left:85.664%;top:92.103%;width:8.250%;height:5.826%"></div>
+    <div class="tg" id="dot14" style="left:33.859%;top:18.223%;width:6.953%;height:4.430%"></div>
+    <div class="tg" id="tTime0" style="left:42.148%;top:81.796%;width:3.559%;height:4.141%"></div>
   </div>
   <svg class="lines" id="lines"></svg>
   <div class="lbl l" data-sp="<span style=&quot;color:#0369a1&quot;>●</span>がパックの残り" data-ov="grid" data-t="grid" data-side="l" data-mode="edge"><span style="color:#0369a1">●</span>がパックの残り</div>
@@ -201,168 +194,24 @@ footer a{color:var(--sub);margin:0 8px}
 <!-- iPhone：1枚の絵 -->
 <div class="pn" id="p-ios">
   <p class="note">※ Safari で開いてください（他のブラウザでは追加できません）。</p>
-  <svg class="addimg" viewBox="0 0 640 340" role="img" aria-label="iPhoneでホーム画面に追加する手順：三本線をタップ、共有を選ぶ、ホーム画面に追加、追加">
-    <!-- 1 三本線（≡）をタップ -->
-    <g transform="translate(6,6) scale(1.2)">
-      <rect x="6" y="4" width="98" height="182" rx="14" fill="#0b1220" stroke="#475569" stroke-width="3"/>
-      <rect x="14" y="16" width="82" height="162" rx="8" fill="#eef1f5"/>
-      <rect x="22" y="26" width="66" height="10" rx="3" fill="#cbd5e1"/>
-      <rect x="14" y="148" width="82" height="30" rx="8" fill="#dfe3e9"/>
-      <circle cx="23" cy="166" r="6" fill="#ffffff"/>
-      <rect x="32" y="157" width="48" height="18" rx="9" fill="#ffffff"/>
-      <circle cx="88" cy="166" r="6" fill="#ffffff"/>
-      <g transform="translate(43 166) scale(1.5) translate(-43 -166)" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round"><path d="M38 162H48M38 166H48M38 170H43"/></g>
-      <rect x="54" y="164" width="18" height="4" rx="2" fill="#cbd5e1"/>
-    </g>
-    <!-- 2 「共有」を選ぶ -->
-    <g transform="translate(164,6) scale(1.2)">
-      <rect x="6" y="4" width="98" height="182" rx="14" fill="#0b1220" stroke="#475569" stroke-width="3"/>
-      <rect x="14" y="16" width="82" height="162" rx="8" fill="#eef1f5"/>
-      <rect x="26" y="30" width="62" height="136" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-      <rect x="33" y="40" width="48" height="6" rx="2" fill="#cbd5e1"/>
-      <path d="M31 52H83M31 70H83" stroke="#e2e5ea" stroke-width="1"/>
-      <rect x="33" y="57" width="48" height="6" rx="2" fill="#cbd5e1"/>
-      <g transform="translate(41 81) scale(1.5) translate(-41 -81)" stroke="#f59e0b" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M39 79.5H37V87.5H45V79.5H43M41 83.5V74.5M38.6 77L41 74.6L43.4 77"/></g>
-      <rect x="49" y="78" width="28" height="6" rx="2" fill="#f59e0b"/>
-      <rect x="33" y="94" width="48" height="6" rx="2" fill="#cbd5e1"/>
-      <rect x="33" y="106" width="48" height="6" rx="2" fill="#cbd5e1"/>
-      <path d="M31 118H83" stroke="#e2e5ea" stroke-width="1"/>
-      <rect x="33" y="123" width="48" height="6" rx="2" fill="#cbd5e1"/>
-      <rect x="33" y="135" width="48" height="6" rx="2" fill="#cbd5e1"/>
-      <rect x="33" y="147" width="48" height="6" rx="2" fill="#cbd5e1"/>
-    </g>
-    <!-- 3 「ホーム画面に追加」 -->
-    <g transform="translate(322,6) scale(1.2)">
-      <rect x="6" y="4" width="98" height="182" rx="14" fill="#0b1220" stroke="#475569" stroke-width="3"/>
-      <rect x="14" y="16" width="82" height="162" rx="8" fill="#eef1f5"/>
-      <rect x="20" y="22" width="16" height="16" rx="4" fill="#fff" stroke="#cbd5e1"/>
-      <rect x="40" y="24" width="34" height="4" rx="2" fill="#d5dbe5"/>
-      <rect x="40" y="31" width="22" height="3" rx="1.5" fill="#e2e5ea"/>
-      <circle cx="86" cy="27" r="6" fill="#fff" stroke="#cbd5e1"/>
-      <path d="M83.5 24.5L88.5 29.5M88.5 24.5L83.5 29.5" stroke="#b6bfcc" stroke-width="1.2" stroke-linecap="round"/>
-      <rect x="20" y="46" width="15" height="15" rx="4" fill="#dbe1ea"/>
-      <rect x="38" y="46" width="15" height="15" rx="4" fill="#dbe1ea"/>
-      <rect x="56" y="46" width="15" height="15" rx="4" fill="#dbe1ea"/>
-      <rect x="74" y="46" width="15" height="15" rx="4" fill="#dbe1ea"/>
-      <circle cx="27" cy="78" r="7" fill="#dfe3e8"/>
-      <circle cx="45" cy="78" r="7" fill="#dfe3e8"/>
-      <circle cx="63" cy="78" r="7" fill="#dfe3e8"/>
-      <circle cx="81" cy="78" r="7" fill="#dfe3e8"/>
-      <rect x="18" y="94" width="74" height="82" rx="9" fill="#dcdfe5"/>
-      <g fill="#c3cad6"><rect x="24" y="100" width="7" height="7" rx="1.5"/><rect x="24" y="116" width="7" height="7" rx="1.5"/><rect x="24" y="132" width="7" height="7" rx="1.5"/><rect x="24" y="148" width="7" height="7" rx="1.5"/></g>
-      <g fill="#d3d9e3"><rect x="36" y="101" width="40" height="4" rx="2"/><rect x="36" y="117" width="34" height="4" rx="2"/><rect x="36" y="133" width="38" height="4" rx="2"/><rect x="36" y="149" width="30" height="4" rx="2"/></g>
-      <g transform="translate(28 167) scale(1.5) translate(-28 -167)" stroke="#f59e0b" stroke-width="1" fill="none" stroke-linecap="round"><rect x="24" y="163" width="8" height="8" rx="2"/><path d="M28 165V169M26 167H30"/></g>
-      <rect x="36" y="165" width="44" height="4" rx="2" fill="#f59e0b"/>
-    </g>
-    <!-- 4 完了 -->
-    <g transform="translate(480,6) scale(1.2)">
-      <rect x="6" y="4" width="98" height="182" rx="14" fill="#0b1220" stroke="#475569" stroke-width="3"/>
-      <rect x="14" y="16" width="82" height="162" rx="6" fill="#0f172a"/>
-      <rect x="14" y="16" width="82" height="162" rx="8" fill="#eef1f5"/>
-      <circle cx="24" cy="27" r="7" fill="#fff" stroke="#cbd5e1"/>
-      <path d="M21.5 24.5L26.5 29.5M26.5 24.5L21.5 29.5" stroke="#b6bfcc" stroke-width="1.3" stroke-linecap="round"/>
-      <rect x="40" y="25" width="28" height="4" rx="2" fill="#d5dbe5"/>
-      <rect x="70" y="19" width="24" height="16" rx="8" fill="#3b82f6"/>
-      <rect x="68" y="17" width="28" height="20" rx="10" fill="none" stroke="#f59e0b" stroke-width="3"/>
-      <rect x="74" y="25" width="16" height="4" rx="2" fill="#ffffff"/>
-      <rect x="14" y="44" width="82" height="30" fill="#fff"/>
-      <rect x="19" y="49" width="20" height="20" rx="5" fill="#e4e9f1" stroke="#dbe1ea"/>
-      <circle cx="29" cy="59" r="3" fill="#c3cad6"/>
-      <rect x="44" y="52" width="40" height="4" rx="2" fill="#d5dbe5"/>
-      <rect x="44" y="61" width="34" height="3" rx="1.5" fill="#e6e9ee"/>
-      <rect x="14" y="82" width="82" height="16" fill="#fff"/>
-      <rect x="19" y="88" width="34" height="4" rx="2" fill="#d5dbe5"/>
-      <rect x="74" y="85" width="17" height="10" rx="5" fill="#d3eedd"/>
-      <circle cx="86" cy="90" r="3.6" fill="#fff"/>
-      <rect x="14" y="128" width="82" height="50" rx="6" fill="#d9dce3"/>
-      <g fill="#fff"><rect x="18" y="133" width="13" height="9" rx="2"/><rect x="34" y="133" width="13" height="9" rx="2"/><rect x="50" y="133" width="13" height="9" rx="2"/><rect x="66" y="133" width="13" height="9" rx="2"/><rect x="82" y="133" width="11" height="9" rx="2"/><rect x="18" y="145" width="13" height="9" rx="2"/><rect x="34" y="145" width="13" height="9" rx="2"/><rect x="50" y="145" width="13" height="9" rx="2"/><rect x="66" y="145" width="13" height="9" rx="2"/><rect x="82" y="145" width="11" height="9" rx="2"/><rect x="18" y="157" width="13" height="9" rx="2"/><rect x="34" y="157" width="13" height="9" rx="2"/><rect x="50" y="157" width="13" height="9" rx="2"/><rect x="66" y="157" width="13" height="9" rx="2"/></g>
-      <rect x="82" y="157" width="11" height="17" rx="2" fill="#3b82f6"/>
-    </g>
-    <!-- 矢印 -->
-    <g fill="none" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M142 124 H158 M150 114 L160 124 L150 134"/>
-      <path d="M300 124 H316 M308 114 L318 124 L308 134"/>
-      <path d="M458 124 H474 M466 114 L476 124 L466 134"/>
-    </g>
-    <!-- 説明 -->
-    <text x="8" y="296" font-size="20">①</text>
-    <g stroke="#f59e0b" stroke-width="3" stroke-linecap="round" fill="none"><path d="M36 282H58M36 289H58M36 296H47"/></g>
-    <text x="68" y="296" font-size="20">メニュー</text>
-    <text x="166" y="296" font-size="20">②</text>
-    <g stroke="#f59e0b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M197 286H193V302H209V286H205M201 294V277M196 282L201 277L206 282"/></g>
-    <text x="220" y="296" font-size="20">共有</text>
-    <text x="388" y="296" text-anchor="middle" font-size="20">③ ホーム画面</text>
-    <text x="388" y="322" text-anchor="middle" font-size="20">に追加</text>
-    <text x="482" y="296" font-size="20">④</text>
-    <rect x="512" y="274" width="64" height="30" rx="15" fill="#3b82f6"/>
-    <text x="544" y="296" text-anchor="middle" font-size="18" style="fill:#ffffff">追加</text>
-  </svg>
+  <img class="addimg" src="intro-add-ios.webp" alt="iPhoneでホーム画面に追加する手順：三本線をタップ、共有を選ぶ、ホーム画面に追加、追加" width="604" height="322">
   <p class="note" style="margin-top:8px">「ウェブアプリとして開く」は、オンのままにしてください。追加すると、ホーム画面にアイコンができます。</p>
 </div>
 
 <!-- Android：1枚の絵 -->
 <div class="pn" id="p-and" hidden>
   <p class="note">※ Chrome で開いてください。</p>
-  <svg class="addimg" viewBox="0 0 640 340" role="img" aria-label="Androidでホーム画面に追加する手順：右上のメニュー、ホーム画面に追加、追加">
-    <!-- 1 メニュー -->
-    <g transform="translate(6,6) scale(1.2)">
-      <rect x="6" y="4" width="98" height="182" rx="14" fill="#0b1220" stroke="#475569" stroke-width="3"/>
-      <rect x="14" y="16" width="82" height="162" rx="6" fill="#1e293b"/>
-      <rect x="14" y="16" width="82" height="162" rx="8" fill="#eef1f5"/>
-      <rect x="14" y="16" width="82" height="22" rx="8" fill="#dfe3e9"/>
-      <rect x="20" y="22" width="48" height="10" rx="5" fill="#ffffff"/>
-      <g fill="#f59e0b"><circle cx="86" cy="22" r="2.7"/><circle cx="86" cy="27" r="2.7"/><circle cx="86" cy="32" r="2.7"/></g>
-      <rect x="22" y="48" width="66" height="10" rx="3" fill="#cbd5e1"/>
-    </g>
-    <!-- 2 追加を選ぶ -->
-    <g transform="translate(243,6) scale(1.2)">
-      <rect x="6" y="4" width="98" height="182" rx="14" fill="#0b1220" stroke="#475569" stroke-width="3"/>
-      <rect x="14" y="16" width="82" height="162" rx="6" fill="#1e293b"/>
-      <rect x="14" y="16" width="82" height="162" rx="8" fill="#eef1f5"/>
-      <rect x="14" y="16" width="82" height="22" rx="8" fill="#dfe3e9"/>
-      <rect x="40" y="34" width="54" height="104" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-      <rect x="46" y="44" width="42" height="6" rx="2" fill="#d5dbe5"/>
-      <rect x="46" y="58" width="42" height="6" rx="2" fill="#d5dbe5"/>
-      <g transform="translate(51 80) scale(1.5) translate(-51 -80)" stroke="#f59e0b" stroke-width="1" fill="none" stroke-linecap="round"><rect x="47" y="76" width="8" height="8" rx="2"/><path d="M51 78V82M49 80H53"/></g>
-      <rect x="60" y="77" width="26" height="6" rx="2" fill="#f59e0b"/>
-      <rect x="46" y="96" width="42" height="6" rx="2" fill="#d5dbe5"/>
-      <rect x="46" y="112" width="42" height="6" rx="2" fill="#d5dbe5"/>
-    </g>
-    <!-- 3 完了 -->
-    <g transform="translate(480,6) scale(1.2)">
-      <rect x="6" y="4" width="98" height="182" rx="14" fill="#0b1220" stroke="#475569" stroke-width="3"/>
-      <rect x="14" y="16" width="82" height="162" rx="8" fill="#eef1f5"/>
-      <rect x="20" y="60" width="70" height="62" rx="8" fill="#ffffff" stroke="#e2e5ea"/>
-      <rect x="26" y="68" width="38" height="5" rx="2" fill="#d5dbe5"/>
-      <rect x="26" y="80" width="58" height="8" rx="3" fill="#eef1f5"/>
-      <rect x="28" y="94" width="26" height="6" rx="2" fill="#e2e5ea"/>
-      <rect x="60" y="100" width="26" height="16" rx="8" fill="#3b82f6"/>
-      <rect x="58" y="98" width="30" height="20" rx="10" fill="none" stroke="#f59e0b" stroke-width="3"/>
-      <rect x="65" y="106" width="16" height="4" rx="2" fill="#ffffff"/>
-    </g>
-    <g fill="none" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M170 124 H208 M198 114 L208 124 L198 134"/>
-      <path d="M407 124 H445 M435 114 L445 124 L435 134"/>
-    </g>
-    <text x="8" y="296" font-size="20">①</text>
-    <g fill="#f59e0b"><circle cx="46" cy="280" r="3.4"/><circle cx="46" cy="289" r="3.4"/><circle cx="46" cy="298" r="3.4"/></g>
-    <text x="62" y="296" font-size="20">メニュー</text>
-    <text x="309" y="296" text-anchor="middle" font-size="20">② ホーム画面</text>
-    <text x="309" y="322" text-anchor="middle" font-size="20">に追加</text>
-    <text x="482" y="296" font-size="20">③</text>
-    <rect x="512" y="274" width="64" height="30" rx="15" fill="#3b82f6"/>
-    <text x="544" y="296" text-anchor="middle" font-size="18" style="fill:#ffffff">追加</text>
-  </svg>
+  <img class="addimg" src="intro-add-and.webp" alt="Androidでホーム画面に追加する手順：右上のメニュー、ホーム画面に追加、追加" width="604" height="322">
   <p class="note" style="margin-top:8px">「アプリをインストール」と出る場合は、それを選びます。追加すると、ホーム画面にアイコンができます。</p>
 </div>
 
 <h2 class="h2box">Pack Viewの機能</h2>
 <div class="samples" id="samples" style="margin-top:20px">
-  <div><div class="ttl"><span class="sy">▦</span>カレンダー</div><div class="mp" id="mpCal"></div></div>
-  <div><div class="ttl"><span class="sy">Σ</span>統計</div><div class="mp" id="mpStat"></div><div class="mcap"><small>プレミアム機能</small></div></div>
-  <div><div class="ttl"><span class="sy">✎</span>メモ</div><div class="mp" id="mpMemo"></div></div>
-  <div><div class="ttl"><span class="sy">☰</span>設定</div><div class="mp" id="mpSet"></div></div>
-  <div><div class="ttl"><span class="sy">ⓘ</span>ガイド</div><div class="mp" id="mpGuide"></div></div>
+  <div><div class="ttl"><span class="sy">▦</span>カレンダー</div><img class="mpi" src="intro-cal.webp" alt="Pack View のカレンダー画面" width="330" height="560" loading="lazy"></div>
+  <div><div class="ttl"><span class="sy">Σ</span>統計</div><img class="mpi" src="intro-stat.webp" alt="Pack View の統計画面" width="330" height="560" loading="lazy"><div class="mcap"><small>プレミアム機能</small></div></div>
+  <div><div class="ttl"><span class="sy">✎</span>メモ</div><img class="mpi" src="intro-memo.webp" alt="Pack View のメモ画面" width="330" height="560" loading="lazy"></div>
+  <div><div class="ttl"><span class="sy">☰</span>設定</div><img class="mpi" src="intro-set.webp" alt="Pack View の設定画面" width="330" height="560" loading="lazy"></div>
+  <div><div class="ttl"><span class="sy">ⓘ</span>ガイド</div><img class="mpi" src="intro-guide.webp" alt="Pack View のガイド画面" width="330" height="560" loading="lazy"></div>
 </div>
 
 <h2 class="h2box">プレミアム機能</h2>
@@ -383,8 +232,7 @@ footer a{color:var(--sub);margin:0 8px}
 <script>
 (function(){
   /* 丸（青＝残り、赤＝吸った本数） */
-  var g=document.getElementById('grid'), used=parseInt(g.getAttribute('data-used'),10)||0;
-  for(var i=0;i<20;i++){var d=document.createElement('div');d.className='dot'+(i<used?' used':'');g.appendChild(d);}
+  /* ホームの絵は画像（intro-home.webp）。吹き出しは画像の上の目印（.tg）を指す */
 
   var stage=document.getElementById('stage'), phone=document.getElementById('phone'), svg=document.getElementById('lines');
   var lbls=[].slice.call(document.querySelectorAll('.lbl'));
@@ -411,7 +259,7 @@ footer a{color:var(--sub);margin:0 8px}
       gutter=maxw+8;
       pw=Math.min(480,avail-2*gutter);
     }
-    phone.style.zoom=pw/400;
+    phone.style.width=pw+'px';
     stage.style.paddingBottom=sp?'44px':'';
     var sr=stage.getBoundingClientRect();
     svg.innerHTML='';
@@ -474,12 +322,11 @@ footer a{color:var(--sub);margin:0 8px}
         /* 支持線はボタンの中心に向ける（点はボタンのふち） */
         var ddx=x0-bcx, ddy=ly-bcy, dd=Math.sqrt(ddx*ddx+ddy*ddy)||1;
         if(ovm==='above'){ /* 時刻の「0」に向ける */
-          var tn=document.getElementById(el.getAttribute('data-t')).firstChild, rg=document.createRange();
-          rg.setStart(tn,0);rg.setEnd(tn,1);var zr=rg.getBoundingClientRect();
+          var zr=document.getElementById('tTime0').getBoundingClientRect();
           o.x1=zr.left-sr.left+zr.width/2; o.cy=zr.top-sr.top-2;
         }
         else if(ovm==='grid'){ /* 下段の左から4つ目の丸 */
-          var d4=document.getElementById('grid').children[13].getBoundingClientRect();
+          var d4=document.getElementById('dot14').getBoundingClientRect();
           o.x1=d4.left-sr.left+d4.width/2; o.cy=d4.bottom-sr.top+8;
         }
         else if(ovm==='below'){o.x1=bcx; o.cy=br.bottom-sr.top+4;}
@@ -499,72 +346,7 @@ footer a{color:var(--sub);margin:0 8px}
   window.addEventListener('resize',layout);
   layout();
 
-  /* ===== ほかの画面（見本）：ダミーの数字 ===== */
-  function head(){return '<div class="ahead"><h3><span class="logo-dot"></span>Pack View</h3><div class="r">11月25日(水)</div></div>';}
-  function navHtml(on){
-    var t=[['●','ホーム'],['▦','カレンダー'],['Σ','統計'],['✎','メモ'],['☰','設定'],['ⓘ','ガイド']];
-    return '<div class="nav">'+t.map(function(x){return '<div class="nb'+(x[1]===on?' on':'')+'"><span class="ic">'+x[0]+'</span>'+x[1]+'</div>';}).join('')+'</div>';
-  }
-  /* カレンダー */
-  var cnt=[13,12,14,11,12,13,12, 11,13,12,14,13,11,12, 14,16,15,13,18,12,13, 11,14,12];
-  var cells='';
-  for(var d=1;d<=30;d++){
-    var c=cnt[d-1], cls='mc-c', v;
-    if(d<=24){v=c; if(c>15) cls+=' o';}
-    else if(d===25){v=3; cls+=' t';}
-    else {v='-'; cls+=' f';}
-    cells+='<div class="'+cls+'"><b>'+d+'</b><span>'+v+'</span></div>';
-  }
-  var bars='<div class="gl" style="bottom:'+(15/22*84)+'px"></div>';
-  for(var k=0;k<30;k++){
-    var n=k<24?cnt[k]:(k===24?3:0), hb=Math.min(n,15)/22*84, hr=Math.max(n-15,0)/22*84;
-    bars+='<i style="height:'+(hb+hr)+'px">'+(hr?'<em style="top:0;height:'+hr+'px"></em>':'')+'</i>';
-  }
-  document.getElementById('mpCal').innerHTML=head()+
-    '<div class="mc-h">2026年11月<i>Today</i></div>'+
-    '<div class="mc-g mc-dow"><span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span></div>'+
-    '<div class="mc-g" style="margin-top:4px">'+cells+'</div>'+
-    '<div class="mc-s">記録日数 <b>25日</b>　超過日数 <u>2日</u>　達成日数 <b>23日</b><br>月間最大本数 <u>18本</u>　月間最小本数 <b>11本</b><br>月間合計 <b>314本/月</b>　月間平均 <b>12.6本/日</b></div>'+
-    '<div class="mc-ch">'+bars+'</div>'+navHtml('カレンダー');
-  /* 統計 */
-  var wk=[[13.1,'10/25-','0/7','92'],[12.6,'11/1-','1/7','88'],[12.9,'11/8-','0/7','90'],[14.4,'11/15-','2/7','101'],[10.8,'11/22-','0/4','43']];
-  var wb='<div class="gl" style="bottom:'+(15/20*96)+'px"></div>';
-  wk.forEach(function(w){var h=w[0]/20*96;wb+='<i style="height:'+h+'px"></i>';});
-  document.getElementById('mpStat').innerHTML=head()+
-    '<div class="sc"><h5>サマリー</h5><p>記録開始日 <b>2026/8/27</b>　記録日数 <b>91日</b></p><p>累計本数 <b>1,200本</b>　平均本数 <b>13.2本/日</b></p><p style="margin:0">累計金額 <b>¥30,000</b>　平均金額 <b>¥330/日</b></p></div>'+
-    '<div class="sc"><h5>週別推移</h5><div class="wk">'+wb+'</div>'+
-    '<div class="wt">'+wk.map(function(w){return '<div>'+w[1]+'</div>';}).join('')+wk.map(function(w){return '<div>'+(w[2].charAt(0)==='0'?w[2]:'<u>'+w[2].charAt(0)+'</u>'+w[2].slice(1))+'</div>';}).join('')+wk.map(function(w){return '<div>'+w[3]+'</div>';}).join('')+'</div></div>'+
-    navHtml('統計');
-  /* メモ */
-  document.getElementById('mpMemo').innerHTML=head()+
-    '<div class="mt"><span class="on">カレンダーメモ</span><span>プライベートメモ</span></div>'+
-    '<div class="mm"><div>2026年11月12日<b>14本</b></div><p>友人と食事</p></div>'+
-    '<div class="mm"><div>2026年11月3日<b>12本</b></div><p>散歩 30分</p></div>'+
-    '<div class="mm"><div>2026年10月18日<b class="o">18本</b></div><p>⛳ ゴルフ練習</p></div>'+
-    '<div class="mm"><div>2026年10月8日<b class="o">17本</b></div><p>残業で遅くなった</p></div>'+
-    '<div class="mm"><div>2026年10月6日<b>13本</b></div><p>早起き</p></div>'+
-    navHtml('メモ');
-
-  /* 設定 */
-  document.getElementById('mpSet').innerHTML=head()+
-    '<div class="sc"><div class="sl">1日の開始時間</div><div class="sr"><div class="sb">−</div><div class="sn">0:00</div><div class="sb">+</div></div><p class="sd">この時刻より前のカウントは前日のデータとして扱われます。例えば5:00に設定すると、2:00に吸った分は前日のカウントになります。</p></div>'+
-    '<div class="sc"><div class="sl">1パックあたりの本数</div><div class="sr"><div class="sb">−</div><div class="sn">20</div><div class="sb">+</div></div><p class="sd">ご利用のタバコ・電子タバコの1パックあたりの本数に合わせて設定してください。</p></div>'+
-    '<div class="sc"><div class="sl">1パックあたりの価格（円）</div><div class="sr"><div class="sn" style="font-size:26px">500</div></div></div>'+
-    navHtml('設定');
-  /* ガイド */
-  document.getElementById('mpGuide').innerHTML=head()+
-    '<div class="gt">Pack View ガイド</div>'+
-    '<div class="gc"><h6>1. ようこそ</h6><p>Pack View は Pack（タバコパック）とView（見る）をコンセプトに、パック内の残り本数を確認しながら 喫煙本数を記録するアプリです。<br><br>最初の設定後Pack Viewはスタートします。</p></div>'+
-    '<div class="gc"><h6>2. 最初の設定</h6><p>① 設定で以下の4項目を入力してください。<br>・1日の開始時間<br>・1パックあたりの本数<br>・1パックあたりの価格（円）<br>・1日の目標本数<br><br>② ホームの<span class="rs"></span>をタップ、「本日の喫煙本数」…</p></div>'+
-    navHtml('ガイド');
-
-  function sampleZoom(){
-    var s=document.getElementById('samples'), w=(s.clientWidth-20)/3;
-    ['mpCal','mpStat','mpMemo','mpSet','mpGuide'].forEach(function(id){document.getElementById(id).style.zoom=w/330;});
-  }
-  window.addEventListener('load',sampleZoom);
-  window.addEventListener('resize',sampleZoom);
-  sampleZoom();
+  /* ほかの画面（見本）は画像（intro-cal.webp など） */
 
   var tabs=document.querySelectorAll('.tab');
   function show(id){
